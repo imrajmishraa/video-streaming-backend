@@ -1,5 +1,5 @@
-import { Prisma } from "prisma";
-import { ApiError } from "../../utils/ApiError.js";
+import { Prisma } from "../../generated/prisma/client";
+import { ApiError } from "../../utils/ApiError";
 
 export const handlePrismaError = (err: unknown): ApiError | null => {
   if (!(err instanceof Prisma.PrismaClientKnownRequestError)) {
