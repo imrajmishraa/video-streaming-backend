@@ -1,0 +1,56 @@
+{
+  "name": "video-stream",
+  "version": "1.0.0",
+  "description": "a video streaming backend",
+  "homepage": "https://github.com/imrajmishraa/video-streaming-backend#readme",
+  "bugs": {
+    "url": "https://github.com/imrajmishraa/video-streaming-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imrajmishraa/video-streaming-backend.git"
+  },
+  "license": "ISC",
+  "author": "Raj Mishra",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "tsx src/server.ts",
+    "test": "tsx --test src/test/**/*.test.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.8.0",
+    "bullmq": "^5.79.3",
+    "compression": "^1.8.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "helmet": "^8.2.0",
+    "http-status-codes": "^2.3.0",
+    "ioredis": "^5.11.1",
+    "morgan": "^1.11.0",
+    "uuid": "^14.0.1",
+    "winston": "^3.19.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^26.1.0",
+    "@types/uuid": "^10.0.0",
+    "nodemon": "^3.1.14",
+    "prisma": "^7.8.0",
+    "tsx": "^4.23.0",
+    "typescript": "^6.0.3"
+  }
+}
