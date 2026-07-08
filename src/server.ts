@@ -1,12 +1,38 @@
 import express from "express";
 import { ENV } from "./config/env";
 const app = express();
+import { prisma } from "./config/prisma";
 
-if (!process.env.VERCEL) {
-  app.listen(ENV.PORT, () => {
-    console.log(`Server running on port: ${ENV.PORT}`);
-  });
+async function startServer() {
+  try {
+    // Verify database connection
+    await prisma.$connect();
+
+    console.log("✅ Connected to PostgreSQL");
+
+    const server = app.listen(ENV.PORT, () => {
+      console.log(`🚀Server running on ${ENV.PORT}`);
+    });
+
+    process.on("SIGINT", async () => {
+      console.log("⏳Stopping server...");
+
+      server.close(async () => {
+        await prisma.$disconnect();
+
+        console.log("Database disconnected");
+        console.log("⌛️Server closed");
+
+        process.exit(0);
+      });
+    });
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 }
+
+startServer();
 
 // connection checkup
 app.get("/", (req, res) => {
