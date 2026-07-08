@@ -11,3 +11,21 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum VideoVisibility {
+  PUBLIC
+  PRIVATE
+  UNLISTED
+}
+
+enum VideoStatus {
+  DRAFT
+  PROCESSING
+  PUBLISHED
+  FAILED
+}
