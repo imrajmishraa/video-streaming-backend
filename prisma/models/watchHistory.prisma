@@ -1,0 +1,11 @@
+model WatchHistory {
+  userId  String
+  videoId String
+
+  user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  video Video @relation(fields: [videoId], references: [id], onDelete: Cascade)
+
+  watchedAt DateTime @default(now())
+
+  @@id([userId, videoId])
+}

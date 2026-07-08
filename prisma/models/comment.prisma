@@ -1,0 +1,19 @@
+model Comment {
+  id String @id @default(cuid())
+
+  content String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  videoId String
+  video   Video  @relation(fields: [videoId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  likes Like[]
+
+  @@index([videoId])
+  @@index([userId])
+}

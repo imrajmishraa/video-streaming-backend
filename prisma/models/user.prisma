@@ -1,0 +1,33 @@
+model User {
+  id String @id @default(cuid())
+
+  username String @unique
+  email    String @unique
+  fullName String
+
+  password String
+
+  avatar     String?
+  coverImage String?
+
+  bio String?
+
+  isVerified Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  videos   Video[]
+  comments Comment[]
+
+  playlists Playlist[]
+
+  subscribers  Subscription[] @relation("ChannelSubscribers")
+  subscribedTo Subscription[] @relation("UserSubscriptions")
+
+  likes Like[]
+
+  watchHistory WatchHistory[]
+
+  refreshTokens RefreshToken[]
+}

@@ -1,0 +1,12 @@
+model Subscription {
+  subscriberId String
+  channelId    String
+
+  subscriber User @relation("UserSubscriptions", fields: [subscriberId], references: [id])
+  channel    User @relation("ChannelSubscribers", fields: [channelId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@id([subscriberId, channelId])
+  @@index([channelId])
+}
