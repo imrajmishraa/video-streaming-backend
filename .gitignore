@@ -1,0 +1,76 @@
+# -------------------------
+# Dependencies
+# -------------------------
+node_modules/
+
+# -------------------------
+# Build Output
+# -------------------------
+dist/
+build/
+coverage/
+
+# -------------------------
+# Environment Variables
+# -------------------------
+.env
+.env.*
+!.env.example
+
+# -------------------------
+# Logs
+# -------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# -------------------------
+# Runtime Files
+# -------------------------
+*.pid
+*.seed
+*.pid.lock
+
+# -------------------------
+# OS Files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# IDE
+# -------------------------
+.vscode/
+.idea/
+
+# Uncomment if you don't want to share workspace settings
+# *.code-workspace
+
+# -------------------------
+# Temporary Files
+# -------------------------
+tmp/
+temp/
+.cache/
+
+# -------------------------
+# Uploads & Generated Media
+# -------------------------
+uploads/
+transcoded/
+thumbnails/
+chunks/
+
+# -------------------------
+# Prisma
+# -------------------------
+prisma/dev.db
+prisma/dev.db-journal
+
+# -------------------------
+# Docker
+# -------------------------
+docker/data/
+docker/redis/
